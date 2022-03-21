@@ -25,3 +25,14 @@
      -> SELECT * FROM EP WHERE JOB!='MANAGER' OR JOB<>'SALESMAN' OR JOB^='CLERK'; == SELECT * FROM EMP WHRER JOB NOT IN ('MANAGER', 'SALESMAN', 'CLERK');
 - (NOT) BETWEEN A AND B -> ~이상 ~이하 -> SELECT * FROM EMP WHRER SAL >= 2000 AND SAL <= 3000; == SELECT * FROM EMP WHERE SAL BETWEEN 2000 AND 3000;
 - LIKE 연산자 -> 일부 문자열이 포함된 데이터 조회시 사용 -> SELECT * FROM EMP WHERE ENAME (not) LIKE 'S%'; -> _ 는 한개, %는 여러개 (_를 문자로 쓰려면 \뒤에 사용)
+- IS NULL 연산자 -> NULL은 데이터 값이 완전히 '비어 있는' 상태를 말한다.. 숫자 0과 NULL은 다르다!
+                 -> SELECT * FROM EMP WHERE COMM = NULL; 을 출력하면 NULL행이 나와야될 것 같지만 아무행도 출력되지 않는다
+                 -> SELECT * FROM EMP WHERE COMM IS NULL; -> NULL인 데이터를 출력하고 싶다면 다음과 같이 IS NULL연산자를 사용하면 된다
+- 집합연산자 UNION -> 값을 연결할 때 각 SELECT문이 출력하려는 열 개수와 각 열의 자료형이 순서별로 일치해야한다
+                  -> SELECT ENPNO, ENAME FROM EMP WHERE DEPTNO = 10 UNINO SELECT EMPNO, ENAME FROM EMP WHERE DEPTNO = 20; (o)
+                  -> SELECT EMPNO, ENAME FROM ENP WHERE DEPTNO = 10 UNION SELECT ENPNO, ENAME, SAL FROM EMP WHERE DEPTNO = 20; (결과출력x-> 출력열개수가 달라서)
+                  -> SELECT EMPNO, ENAME, SAL, DEPTNO FROM EMP WHERE DEPTNO = 10 UNION SELECT ENAME, EMPNO, DEPTNO, SAL FROM EMP WHERE DEPTNO = 20; (결과출력x-> 대응하는 식과 다른 데이터유형이라서)
+- UNION ALL은 중복 데이터도 모두 출력한다(UNION은 중복은 제거한 상태로 출력)
+- MINUS는 차집합을 의미한다 
+- INTERSECT는 교집합을 의미한다
+                  
