@@ -7,5 +7,5 @@
 ### SCOTT계정에는 EMP, DEPT, SALGRADE 등 다양한 테이블이 있다
 ### 조인 -> 두개 이상의 테이블을 양옆에 연결하여 마치 하나의 테이블인것처럼 데이터를 조회하는 방식
 ### SELECT [조회할 열이름] FROM [조회할 테이블이름];
-### 중복데이터 삭제 -> DISTINCT -> ex) SELECT DISTINCT JOB, DEPTNO FROM EMP;
-### 중복되는 열 제거없이 그대로 출력 (DISTICT와 반대) ALL 
+- 중복데이터 삭제 -> DISTINCT -> ex) SELECT DISTINCT JOB, DEPTNO FROM EMP;
+- 중복되는 열 제거없이 그대로 출력 (DISTICT와 반대) ALL 
