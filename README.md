@@ -36,3 +36,17 @@
 - MINUS는 차집합을 의미한다 
 - INTERSECT는 교집합을 의미한다
                   
+### 오라클 함수 -> 특정한 결과 값을 얻기 위해 데이터를 입력할 수 있는 특수 명령어를 의미한다 -> 오라클 함수의 종류로는 오라클에서 기본으로 제공하고 있는 내장 함수와 사용자가 필요에 의해 직접 정의한 사용자 정의 함수로 나뉜다
+- 대소문자를 바꿔주는 UPPER, LOWER, INITCAP함수 -> 예시) SELECT ENAME, UPPER(ENAME), LOSER(ENAME), INITCAP(ENAME) FROM EMP;
+                                                 예시2) SELECT * FROM EMP WHERE UPPER(ENAME) = UPPER('scott') -> UPPER 함수로 문자열 비교하기
+- 문자열 길이를 구하는 LENGTH 함수 -> 예시) SELECT ENAME, LENGTH(ENAME) FROM EMP;
+                                    예시2) SELECT ENAME, LENGTH(ENAME) FROM EMP WHERE LENGTH(ENAME) >= 5; -> LENGTH함수를 WHERE절에서 사용
+- 문자열 일부 추출하는 SUBSTR 함수 -> 예시) SELECT JOB, SUBSTR(JOB, 1, 2), SUBSTR(JOB, 3, 2), SUBSTR(JOB, 5) FROM EMP; -> SUBSTR(문자열 데이터, 시작위치, 추출길이)
+- 문자열 데이터 안에서 특정 문자 위치를 찾는 INSTR 함수 -> INSTR([대상 문자열 데이터(필수)], [위치를 찾으려는 부분 문자(필수)], [위치 찾기를 시작할 대상 문자열 데이터 위치(선택, 기본값은 1)] [시작 위치에서 찾으려는 문자가 몇 번쨰인지 지정(선택, 기본값은 1)])
+                                  -> 예시) SELECT INSTR('HELLO, ORACLE!', 'L', 2, 2) FROM DUAL; -> 검색 시작 위치부터 두번쨰로 등장한 L
+- 특정 문자를 다른 문자로 바꾸는 REPLACE 함수 -> REPLACE([문자열 데이터 또는 열 이름(필수)], [찾는 문자(필수)], [대체할 문자(선책)])
+- 데이터의 빈공간을 특정 문자로 채우는 LPAD, RPAD 함수 -> LPAD([문자열 데이터 또는 열이름(필수)], [데이터의 자릿수(필수)], [빈 공간에 채울 문자(선택)])
+                                                       RPAD([문자열 데이터 또는 열이름(필수)], [데이터의 자릿수(필수)], [빈 공간에 채울 문자(선택)])
+                                                       
+                                                       
+                               
