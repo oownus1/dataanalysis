@@ -47,6 +47,15 @@
 - 특정 문자를 다른 문자로 바꾸는 REPLACE 함수 -> REPLACE([문자열 데이터 또는 열 이름(필수)], [찾는 문자(필수)], [대체할 문자(선책)])
 - 데이터의 빈공간을 특정 문자로 채우는 LPAD, RPAD 함수 -> LPAD([문자열 데이터 또는 열이름(필수)], [데이터의 자릿수(필수)], [빈 공간에 채울 문자(선택)])
                                                        RPAD([문자열 데이터 또는 열이름(필수)], [데이터의 자릿수(필수)], [빈 공간에 채울 문자(선택)])
+- 두 문자열 데이터를 합치는 CONCAT 함수 -> 예) SELECT CONCAT(EMPNO, CONCAT(':',ENAME)) FROM ENP WHERE ENAME='SCOTT';
+- 특정 문자를 지우는 TRIM, LTRIM, RTRIM 함수 -> TRIM([삭제 옵션(선택)] [삭제할 문자(선택)] FROM [원본 문자열 데이터(필수)]
+                                            -> 예) SELECT '[' || TRIM('_' FROM '_ _Oracle_ _') || ']' AS TRIM FROM DUAL;
+                                            
+                                            
+### 숫자 데이터를 연산하고 수치를 조정하는 숫자 함수
+- 특정 위치에서 반올림하는 ROUND 함수 -> ROUND([숫자(필수)], [반올림 위치(선택)] -> 예) SELECT ROUND(1234.5678) AS ROUND FROM DUAL; ->1235
+                                                                             -> 예) SELECT ROUND(1234.5678, 1) AS ROUND FROM DUAL; -> 1234.6
+- 특정 위치에서 버리는 TRUNC 함수                                      
                                                        
                                                        
                                
